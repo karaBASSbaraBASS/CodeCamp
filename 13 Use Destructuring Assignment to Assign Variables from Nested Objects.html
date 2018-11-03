@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>freeCodeCampLessons</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<section>
+    <h2>ES6: Use Destructuring Assignment to Assign Variables from Nested Objects</h2>
+    <p>We can similarly destructure nested objects into variables.</p>
+    <p>Consider the following code:</p>
+    <p class="code">
+        const a = {<br>
+            start: { x: 5, y: 6},<br>
+            end: { x: 6, y: -9 }<br>
+        };<br>
+        const { start : { x: startX, y: startY }} = a;<br>
+        console.log(startX, startY); // 5, 6<br>
+    </p>
+    <p>In the example above, the variable <strong>start</strong> is assigned the value of <strong>a.start</strong>, which is also an object.</p>
+    <p>Use destructuring assignment to obtain <strong>max</strong> of <strong>forecast.tomorrow</strong> and assign it to <strong>maxOfTomorrow</strong>.</p>
+    <ul>
+        <li><strong>maxOfTomorrow</strong> equals <strong>84.6</strong></li>
+        <li>nested destructuring was used</li>
+    </ul>
+    <p>result in console</p>
+
+    <script>
+        const LOCAL_FORECAST = {
+            today: { min: 72, max: 83 },
+            tomorrow: { min: 73.3, max: 84.6 }
+        };
+
+        function getMaxOfTmrw(forecast) {
+            "use strict";
+            // change code below this line
+            const { tomorrow : { max : maxOfTomorrow}} = forecast; // change this line
+            // change code above this line
+            return maxOfTomorrow;
+        }
+
+        console.log(getMaxOfTmrw(LOCAL_FORECAST)); // should be 84.6
+    </script>
+</section>
+
+</body>
+</html>

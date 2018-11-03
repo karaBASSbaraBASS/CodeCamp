@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>freeCodeCampLessons</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<section>
+    <h2>ES6: Use Destructuring Assignment to Assign Variables from Objects</h2>
+    <p>Consider the following ES5 code:</p>
+    <p class="code">
+        var voxel = {x: 3.6, y: 7.4, z: 6.54 };<br>
+        var x = voxel.x; // x = 3.6<br>
+        var y = voxel.y; // y = 7.4<br>
+        var z = voxel.z; // z = 6.54<br>
+    </p>
+    <p>Here's the same assignment statement with ES6 destructuring syntax:</p>
+    <p class="code">
+        const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54<br>
+    </p>
+    <p>If instead you want to store the values of <strong>voxel.x</strong> into <strong>a</strong>, <strong>voxel.y</strong> into <strong>b</strong>, and <strong>voxel.z</strong> into <strong>c</strong>, you have that freedom as well.</p>
+    <p class="code">
+        const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.54<br>
+    </p>
+    <p>You may read it as "get the field <strong>x</strong> and copy the value into <strong>a</strong>," and so on.</p>
+    <p>Use destructuring to obtain the average temperature for tomorrow from the input object <strong>AVG_TEMPERATURES</strong>, and assign value with key <strong>tomorrow</strong> to <strong>tempOfTomorrow</strong> in line.</p>
+    <ul>
+        <li><strong>getTempOfTmrw(AVG_TEMPERATURES)</strong> should be <strong>79</strong></li>
+        <li>destructuring with reassignment was used</li>
+    </ul>
+    <p>result in console</p>
+
+    <script>
+        const AVG_TEMPERATURES = {
+            today: 77.5,
+            tomorrow: 79
+        };
+
+        function getTempOfTmrw(avgTemperatures) {
+            "use strict";
+
+            const {tomorrow:tempOfTomorrow} = avgTemperatures;
+            // const tempOfTomorrow = undefined; // change this line
+
+            return tempOfTomorrow;
+        }
+
+        console.log(getTempOfTmrw(AVG_TEMPERATURES)); // should be 79
+        //Destructuring Assignment - это новая возможность вытягивать внутренности обьекта в переменные, синтаксис {}
+        //const { objectItemKey : newVarName} = objectName;
+    </script>
+</section>
+
+</body>
+</html>
