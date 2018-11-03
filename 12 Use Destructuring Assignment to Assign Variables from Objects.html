@@ -10,39 +10,48 @@
 </head>
 <body>
 <section>
-    <h2>ES6: Use the Spread Operator to Evaluate Arrays In-Place</h2>
-    <p>The ES5 code below uses <strong>apply()</strong> to compute the maximum value in an array:</p>
+    <h2>ES6: Use Destructuring Assignment to Assign Variables from Objects</h2>
+    <p>Consider the following ES5 code:</p>
     <p class="code">
-        var arr = [6, 89, 3, 45];<br>
-        var maximus = Math.max.apply(null, arr); // returns 89<br>
+        var voxel = {x: 3.6, y: 7.4, z: 6.54 };<br>
+        var x = voxel.x; // x = 3.6<br>
+        var y = voxel.y; // y = 7.4<br>
+        var z = voxel.z; // z = 6.54<br>
     </p>
-    <p>We had to use <strong>Math.max.apply(null, arr)</strong> because <strong>Math.max(arr)</strong> returns <strong>NaN</strong>. <strong>Math.max()</strong> expects comma-separated arguments, but not an array.</p>
+    <p>Here's the same assignment statement with ES6 destructuring syntax:</p>
     <p class="code">
-        const arr = [6, 89, 3, 45];<br>
-        const maximus = Math.max(...arr); // returns 89<br>
+        const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54<br>
     </p>
-    <p><strong>...arr</strong> returns an unpacked array. In other words, it spreads the array.</p>
-    <p>However, the spread operator only works in-place, like in an argument to a function or in an array literal. The following code will not work:</p>
+    <p>If instead you want to store the values of <strong>voxel.x</strong> into <strong>a</strong>, <strong>voxel.y</strong> into <strong>b</strong>, and <strong>voxel.z</strong> into <strong>c</strong>, you have that freedom as well.</p>
     <p class="code">
-        const spreaded = ...arr; // will throw a syntax error<br>
+        const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.54<br>
     </p>
-    <p>Copy all contents of <strong>arr1</strong> into another array <strong>arr2</strong> using the spread operator.</p>
+    <p>You may read it as "get the field <strong>x</strong> and copy the value into <strong>a</strong>," and so on.</p>
+    <p>Use destructuring to obtain the average temperature for tomorrow from the input object <strong>AVG_TEMPERATURES</strong>, and assign value with key <strong>tomorrow</strong> to <strong>tempOfTomorrow</strong> in line.</p>
     <ul>
-        <li><strong>arr2</strong> is correct copy of <strong>arr1</strong>.</li>
-        <li><strong>...</strong> spread operator was used to duplicate <strong>arr1</strong>.</li>
-        <li><strong>arr2</strong> remains unchanged when <strong>arr1</strong> is changed.</li>
-
+        <li><strong>getTempOfTmrw(AVG_TEMPERATURES)</strong> should be <strong>79</strong></li>
+        <li>destructuring with reassignment was used</li>
     </ul>
     <p>result in console</p>
 
     <script>
-        const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
-        let arr2;
-        (function() {
+        const AVG_TEMPERATURES = {
+            today: 77.5,
+            tomorrow: 79
+        };
+
+        function getTempOfTmrw(avgTemperatures) {
             "use strict";
-            arr2 = [...arr1]; // change this line
-        })();
-        console.log(arr2);
+
+            const {tomorrow:tempOfTomorrow} = avgTemperatures;
+            // const tempOfTomorrow = undefined; // change this line
+
+            return tempOfTomorrow;
+        }
+
+        console.log(getTempOfTmrw(AVG_TEMPERATURES)); // should be 79
+        //Destructuring Assignment - это новая возможность вытягивать внутренности обьекта в переменные, синтаксис {}
+        //const { objectItemKey : newVarName} = objectName;
     </script>
 </section>
 
