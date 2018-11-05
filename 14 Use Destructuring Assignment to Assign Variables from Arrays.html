@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>freeCodeCampLessons</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<section>
+    <h2>ES6: Use Destructuring Assignment to Assign Variables from Arrays</h2>
+    <p>ES6 makes destructuring arrays as easy as destructuring objects.</p>
+    <p>One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables.</p>
+
+    <p>Destructuring an array lets us do exactly that:</p>
+    <p class="code">
+        const [a, b] = [1, 2, 3, 4, 5, 6];<br>
+        console.log(a, b); // 1, 2<br>
+    </p>
+    <p>The variable <strong>a</strong> is assigned the first value of the array, and  <strong>b</strong> is assigned the second value of the array.</p>
+    <p>We can also access the value at any index in an array with destructuring by using commas to reach the desired index:</p>
+    <p class="code">
+        const [a, b,,, c] = [1, 2, 3, 4, 5, 6];<br>
+        console.log(a, b, c); // 1, 2, 5<br>
+    </p>
+    <p>Use destructuring assignment to swap the values of <strong>a</strong> and <strong>b</strong> so that <strong>a</strong> receives the value stored in <strong>b</strong>, and <strong>b</strong> receives the value stored in <strong>a</strong>.</p>
+    <ul>
+        <li>Value of <strong>a</strong> should be 6, after swapping.</li>
+        <li>Value of <strong>b</strong> should be 8, after swapping.</li>
+        <li>Use array destructuring to swap <strong>a</strong> and <strong>b</strong>.</li>
+    </ul>
+    <p>result in console</p>
+
+    <script>
+        let a = 8, b = 6;
+        (() => {
+            "use strict";
+            // change code below this line
+            [a , b] = [b , a]
+            // создаем массив из двух переменных
+            // создаем новый масив в котором меняем значения местами
+            // разбираем массив на пременные
+            // change code above this line
+        })();
+        console.log(a); // should be 6
+        console.log(b); // should be 8
+    </script>
+</section>
+
+</body>
+</html>
